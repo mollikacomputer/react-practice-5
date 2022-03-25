@@ -1,17 +1,18 @@
 import React from 'react';
 import './Product.css';
-const Product = () => {
-   
+const Product = (props) => {
+    console.log(props);
+    const {addToCart, product} = props;
+   const {price, name, img, seller,shipping} =props.product;
     return (
         <div className='products'>
             <div className="product">
-                <img src='' alt="images" />
-                <h2>  </h2>
-                <h2>Price: $ </h2>
-                <p>Ratings: $ </p>
-                <p>Shipping : $ </p>
-                <p>Seller Name: $ </p>
-                <button className='btn'> Add To Cart </button>
+                <img src={img} alt="images" />
+                <h2>Price: ${name.slice(0,15)} </h2>
+                <p>Ratings: ${price} </p>
+                <p>Shipping : ${shipping} </p>
+                <p>Seller Name: ${seller} </p>
+                <button onClick={()=>addToCart(product)} className='btn'> Add To Cart </button>
             </div>
         </div>
     );
